@@ -1,0 +1,10 @@
+.li-connect-link {
+  color: $linkedin-color;
+
+  &:active,
+  &:focus,
+  &:hover,
+  &:visited {
+    color: lighten($linkedin-color, 5%);
+  }
+}

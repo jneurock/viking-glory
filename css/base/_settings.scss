@@ -1,0 +1,38 @@
+// Various global styles
+$body-bg: #eee;
+$body-font-color: #333;
+
+// Colors
+$box-shadow-color: #c1c1c1;
+$linkedin-color: #0a6b9b;
+$primary-color: #578c24;
+$primary-gradient-color1: lighten($primary-color, 5%);
+$primary-gradient-color2: darken($primary-color, 5%);
+$white: #fff;
+$white-shadow-color: #f0f0f0;
+
+// Border Radius
+$global-radius: 4px;
+
+//
+// Typography Variables
+//
+
+// Control header font styles
+$header-font-weight: bold;
+$header-font-color: $body-font-color;
+
+// Style anchors
+$anchor-text-decoration: underline;
+
+//
+// Sub Nav Variables
+//
+$sub-nav-list-margin: em-calc(-4 0 16);
+$sub-nav-list-padding-top: 1em;
+$sub-nav-font-color: $primary-color;
+$sub-nav-text-decoration: $anchor-text-decoration;
+$sub-nav-border-radius: $global-radius;
+$sub-nav-active-font-weight: normal;
+$sub-nav-active-padding: 0.5em 1em;
+$sub-nav-item-divider-margin: emCalc(0 12);

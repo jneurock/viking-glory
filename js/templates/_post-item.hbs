@@ -1,0 +1,58 @@
+<article class="row">
+  <div class="columns">
+    <header>
+      <h3>
+        {{#unless body}}
+          {{#unless url}}
+            {{#link-to "post" this.id}}
+              {{title}}
+            {{/link-to}}
+          {{else}}
+            <a bind-attr href=url>
+              {{title}}
+            </a>
+          {{/unless}}
+        {{else}}
+          {{title}}
+        {{/unless}}
+      </h3>
+
+      <h4 class="subheader">
+        <small>
+          {{#if modified}}
+            Updated {{modified}}
+            &nbsp;//&nbsp;
+          {{/if}}
+
+          Posted {{created}}
+        </small>
+      </h4>
+    </header>
+
+    {{#if body}}
+      <section class="row">
+        <div class="columns">
+          {{{body}}}
+        </div>
+      </section>
+    {{else}}
+      <section class="row">
+        <div class="columns">
+          {{{summary}}}
+        </div>
+      </section>
+
+      <footer class="row">
+        <div class="columns">
+          {{#unless url}}
+            {{#link-to "post" this.id}}
+              Read more...
+            {{/link-to}}
+          {{else}}
+            <a {{bind-attr href=url}}>Read more...</a>
+          {{/unless}}
+        </div>
+      </footer>
+    {{/if}}
+  </div>
+</article>

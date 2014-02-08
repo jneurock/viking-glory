@@ -1,0 +1,4 @@
+header.main {
+  @include box-shadow(0 -3px 3px 1px $box-shadow-color);
+  background: url("../img/header-bg.png") repeat-x scroll -1px bottom #ddd;
+}

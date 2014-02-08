@@ -1,0 +1,26 @@
+@import
+  "mixins/box-shadow",
+  "mixins/simple-linear-gradient",
+  "base/settings",
+  "../bower_components/foundation/scss/normalize.scss",
+  "../bower_components/foundation/scss/foundation/components/global",
+  "../bower_components/foundation/scss/foundation/components/grid",
+  "../bower_components/foundation/scss/foundation/components/visibility",
+  "../bower_components/foundation/scss/foundation/components/block-grid",
+  "../bower_components/foundation/scss/foundation/components/type",
+  "../bower_components/foundation/scss/foundation/components/alert-boxes",
+  "../bower_components/foundation/scss/foundation/components/pagination",
+  "../bower_components/foundation/scss/foundation/components/sub-nav",
+  "base/global",
+  "base/article",
+  "layout/nav",
+  "layout/header",
+  "layout/footer",
+  "modules/profile-image",
+  "modules/into-lately",
+  "modules/linkedin",
+  "modules/copyright",
+  "state/small-profile-image";
+
+// IE 8 Grid Styles
+@import url("../bower_components/viking-base/css/foundation-ie8/ie8-grid-foundation-4.css");

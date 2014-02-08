@@ -1,0 +1,11 @@
+<section class="row">
+  <div class="columns">
+    <h3 class="text-center">What I've Been Into Lately</h3>
+
+    <ul class="large-block-grid-8 small-block-grid-4 into-lately">
+      {{#each App.intoLatelyItems}}
+        {{partial "into-lately-item"}}
+      {{/each}}
+    </ul>
+  </div>
+</section>
