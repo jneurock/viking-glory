@@ -1,0 +1,11 @@
+.code--container {
+  background-color: $code-bg;
+  border-radius: $global-radius;
+  border: 1px solid $box-shadow-color;
+  padding: 1em;
+
+  code {
+    color: lighten($body-font-color, 25%);
+    font-weight: normal;
+  }
+}

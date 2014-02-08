@@ -4,7 +4,7 @@
       <h3>
         {{#unless body}}
           {{#unless url}}
-            {{#link-to "post" this.id}}
+            {{#link-to this.path this.id}}
               {{title}}
             {{/link-to}}
           {{else}}
@@ -45,7 +45,7 @@
       <footer class="row">
         <div class="columns">
           {{#unless url}}
-            {{#link-to "post" this.id}}
+            {{#link-to this.path this.id}}
               Read more...
             {{/link-to}}
           {{else}}

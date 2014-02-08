@@ -65,7 +65,7 @@ function anonymous(Handlebars, depth0, helpers, partials, data) {
         data.buffer.push("\n      ");
         return buffer;
     }
-    data.buffer.push("<section class=\"row\">\n  <div class=\"columns\">\n    <h3 class=\"text-center\">What I've Been Into Lately</h3>\n\n    <ul class=\"large-block-grid-8 small-block-grid-4 into-lately\">\n      ");
+    data.buffer.push("<section class=\"row into-lately\">\n  <div class=\"columns\">\n    <h3 class=\"text-center\">What I've Been Into Lately</h3>\n\n    <ul class=\"large-block-grid-8 small-block-grid-4\">\n      ");
     hashTypes = {};
     hashContexts = {};
     stack1 = helpers.each.call(depth0, "App.intoLatelyItems", {hash:{}, inverse:self.noop, fn:self.program(1, program1, data), contexts:[depth0], types:["ID"], hashContexts:hashContexts, hashTypes:hashTypes, data:data});
@@ -161,8 +161,8 @@ function anonymous(Handlebars, depth0, helpers, partials, data) {
         data.buffer.push("\n            ");
         hashTypes = {};
         hashContexts = {};
-        options = {hash:{}, inverse:self.noop, fn:self.program(3, program3, data), contexts:[depth0, depth0], types:["STRING", "ID"], hashContexts:hashContexts, hashTypes:hashTypes, data:data};
-        stack2 = ((stack1 = helpers["link-to"] || (depth0 && depth0["link-to"])), stack1 ? stack1.call(depth0, "post", "id", options) : helperMissing.call(depth0, "link-to", "post", "id", options));
+        options = {hash:{}, inverse:self.noop, fn:self.program(3, program3, data), contexts:[depth0, depth0], types:["ID", "ID"], hashContexts:hashContexts, hashTypes:hashTypes, data:data};
+        stack2 = ((stack1 = helpers["link-to"] || (depth0 && depth0["link-to"])), stack1 ? stack1.call(depth0, "path", "id", options) : helperMissing.call(depth0, "link-to", "path", "id", options));
         if (stack2 || stack2 === 0) {
             data.buffer.push(stack2);
         }
@@ -235,8 +235,8 @@ function anonymous(Handlebars, depth0, helpers, partials, data) {
         data.buffer.push("\n            ");
         hashTypes = {};
         hashContexts = {};
-        options = {hash:{}, inverse:self.noop, fn:self.program(15, program15, data), contexts:[depth0, depth0], types:["STRING", "ID"], hashContexts:hashContexts, hashTypes:hashTypes, data:data};
-        stack2 = ((stack1 = helpers["link-to"] || (depth0 && depth0["link-to"])), stack1 ? stack1.call(depth0, "post", "id", options) : helperMissing.call(depth0, "link-to", "post", "id", options));
+        options = {hash:{}, inverse:self.noop, fn:self.program(15, program15, data), contexts:[depth0, depth0], types:["ID", "ID"], hashContexts:hashContexts, hashTypes:hashTypes, data:data};
+        stack2 = ((stack1 = helpers["link-to"] || (depth0 && depth0["link-to"])), stack1 ? stack1.call(depth0, "path", "id", options) : helperMissing.call(depth0, "link-to", "path", "id", options));
         if (stack2 || stack2 === 0) {
             data.buffer.push(stack2);
         }
@@ -326,15 +326,7 @@ function anonymous(Handlebars, depth0, helpers, partials, data) {
     this.compilerInfo = [4, ">= 1.0.0"];
     helpers = this.merge(helpers, Ember.Handlebars.helpers);
     data = data || {};
-    data.buffer.push("<p>\n  Nothing here, yet. Soon... very soon.\n</p>");
-}
-);
-  templates['index'] = template(
-function anonymous(Handlebars, depth0, helpers, partials, data) {
-    this.compilerInfo = [4, ">= 1.0.0"];
-    helpers = this.merge(helpers, Ember.Handlebars.helpers);
-    data = data || {};
-    data.buffer.push("<p>\n  This site is nearly done going through an overhaul. Some good content coming soon... very soon.\n</p>\n\n<p>\n  - Rocky <br />\n  1/18/2014\n</p>");
+    data.buffer.push("<h2>&#9678; gists</h2>\n\n<p>\n  Nothing here, yet. Soon... very soon.\n</p>");
 }
 );
   templates['post'] = template(
@@ -365,9 +357,12 @@ function anonymous(Handlebars, depth0, helpers, partials, data) {
         data.buffer.push("\n");
         return buffer;
     }
+    function program3(depth0, data) {
+        data.buffer.push("\n  <article class=\"row\">\n    <div class=\"columns\">\n      <header>\n        <h3>No posts were found</h3>\n      </header>\n\n      <section>\n        <p>\n          It could be that you are trying to reach a page number\n          that doesn't exist.\n        </p>\n      </section>\n    </div>\n  </article>\n");
+    }
     hashTypes = {};
     hashContexts = {};
-    stack1 = helpers.each.call(depth0, {hash:{}, inverse:self.noop, fn:self.program(1, program1, data), contexts:[], types:[], hashContexts:hashContexts, hashTypes:hashTypes, data:data});
+    stack1 = helpers.each.call(depth0, {hash:{}, inverse:self.program(3, program3, data), fn:self.program(1, program1, data), contexts:[], types:[], hashContexts:hashContexts, hashTypes:hashTypes, data:data});
     if (stack1 || stack1 === 0) {
         data.buffer.push(stack1);
     }
@@ -384,7 +379,12 @@ function anonymous(Handlebars, depth0, helpers, partials, data) {
     this.compilerInfo = [4, ">= 1.0.0"];
     helpers = this.merge(helpers, Ember.Handlebars.helpers);
     data = data || {};
-    data.buffer.push("<p>\n  Nothing here, yet. Soon... very soon.\n</p>");
+    var buffer = "", hashTypes, hashContexts, escapeExpression = this.escapeExpression;
+    data.buffer.push("<h2>&#9678; projects</h2>\n\n");
+    hashTypes = {};
+    hashContexts = {};
+    data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "outlet", {hash:{}, contexts:[depth0], types:["ID"], hashContexts:hashContexts, hashTypes:hashTypes, data:data})));
+    return buffer;
 }
 );
 }());

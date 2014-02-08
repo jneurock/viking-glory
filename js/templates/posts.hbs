@@ -1,5 +1,20 @@
 {{#each}}
   {{partial "post-item"}}
+{{else}}
+  <article class="row">
+    <div class="columns">
+      <header>
+        <h3>No posts were found</h3>
+      </header>
+
+      <section>
+        <p>
+          It could be that you are trying to reach a page number
+          that doesn't exist.
+        </p>
+      </section>
+    </div>
+  </article>
 {{/each}}
 
 {{partial "pagination"}}

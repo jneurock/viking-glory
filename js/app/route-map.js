@@ -18,5 +18,9 @@ App.Router.map(function() {
     this.route('page', {
       path: '/page/:page_id'
     });
+
+    this.route('project', {
+      path: '/project/:post_id'
+    });
   });
 });

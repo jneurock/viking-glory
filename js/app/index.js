@@ -18,7 +18,7 @@ App.IndexRoute = Ember.Route.extend({
     return App.Posts.findAll();
   },
   /**
-   * Render the posts template instead of the index template
+   * Render the posts template
    *
    * @memberof App.IndexRoute
    * @instance

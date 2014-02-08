@@ -1,8 +1,7 @@
 [{
   "id": "viking-base",
-  "categories": [
-    "projects"
-  ],
+  "category": "projects",
+  "path": "projects.project",
   "title": "Viking Base",
   "summary": "<p>The Viking Base is a set of front-end technologies that have been combined to create a solid platform with which to build web applications. It combines Ember, Handlebars and Foundation with the HTML5 Boilerplate Ant Built Script.</p>",
   "url": "",

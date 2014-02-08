@@ -86,6 +86,15 @@ App = Ember.Application.create({
    */
   intoLatelyItems: [],
   /**
+   * The number of posts per page to render
+   *
+   * @memberof App
+   * @instance
+   * @default
+   * @type {number}
+   */
+  postsPerPage: 5,
+  /**
    * The site title
    *
    * @memberof App

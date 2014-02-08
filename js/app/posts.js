@@ -11,9 +11,11 @@ App.Posts.reopenClass({
   /**
    * @memberof App.Posts
    * @instance
+   * @param {string} [category] A category to filter by
+   * @param {number} [page] Which page of posts to return
    * @returns {Array.<Object>}
    */
-  findAll: function() {
+  findAll: function(category, page) {
 
     return $.ajax('posts/posts.json', {
       // Temp: Set JSON type in global AJAX settings
@@ -23,7 +25,38 @@ App.Posts.reopenClass({
       // Success
       function(response) {
 
-        return response;
+        var i = 0,
+            posts = [],
+            postsPerPage = App.get('postsPerPage') || 5,
+            startPostIndex = 0,
+            endPostIndex = 0;
+
+        // Filter out any unwanted posts
+        if (category) {
+
+          for (i = 0; i < response.length; i++) {
+
+            if (response[i].category === category) {
+
+              posts.push(response[i]);
+            }
+          }
+
+        } else {
+
+          posts = response;
+        }
+
+        // Limit posts by page number
+        if (page) {
+
+          startPostIndex = (page - 1) * postsPerPage;
+          endPostIndex = ((page + 1) * postsPerPage) - 1;
+
+          posts = posts.slice(startPostIndex, endPostIndex);
+        }
+
+        return posts;
       },
 
       // Fail
