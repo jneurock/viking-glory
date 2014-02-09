@@ -14,7 +14,7 @@ function anonymous(Handlebars, depth0, helpers, partials, data) {
     this.compilerInfo = [4, ">= 1.0.0"];
     helpers = this.merge(helpers, Ember.Handlebars.helpers);
     data = data || {};
-    data.buffer.push("<footer class=\"row main\">\n  <div class=\"large-8 columns\">\n    <p>\n      While I still take on small projects from time to time, I spend most of my time developing front-end code at my full-time job.\n      If you have an idea for a weekend project or need some part-time consulting work, feel free to contact me:\n      <a href=\"mailto:info@vikingglory.com\">info@vikingglory.com</a>\n    </p>\n  </div>\n\n  <div class=\"large-4 columns\">\n    <p>\n      Connect with me on LinkedIn: <br />\n      <a href=\"http://www.linkedin.com/in/jneurock\" class=\"li-connect-link\">Rocky Neurock</a>\n    </p>\n\n    <p>\n      You can also find me on GitHub: <br />\n      <a href=\"https://github.com/jneurock/\">jneurock (Rocky Neurock)</a>\n  </div>\n</footer>");
+    data.buffer.push("<footer class=\"row main\">\n  <div class=\"large-8 columns\">\n    <p>\n      While I still take on small projects from time to time, I spend most of my time developing front-end code at my full-time job.\n      If you have an idea for a weekend project or need some part-time consulting work, feel free to contact me:\n      <a href=\"mailto:info@vikingglory.com\">info@vikingglory.com</a>\n    </p>\n  </div>\n\n  <div class=\"large-4 columns\">\n    <p>\n      Connect with me on LinkedIn: <br />\n      <a href=\"http://www.linkedin.com/in/jneurock\" class=\"li-connect-link\">Rocky Neurock</a>\n    </p>\n\n    <p>\n      You can also find me on GitHub: <br />\n      <a href=\"https://github.com/jneurock/\" class=\"github-link\">jneurock (Rocky Neurock)</a>\n  </div>\n</footer>");
 }
 );
   templates['_header'] = template(
@@ -23,11 +23,11 @@ function anonymous(Handlebars, depth0, helpers, partials, data) {
     helpers = this.merge(helpers, Ember.Handlebars.helpers);
     data = data || {};
     var buffer = "", hashTypes, hashContexts, escapeExpression = this.escapeExpression;
-    data.buffer.push("<header class=\"row main\">\n  <div class=\"large-3 columns\">\n    <div class=\"profile-image\">\n      <img src=\"img/rocky.jpg\" alt=\"Picture of Rocky\" height=\"200\" width=\"200\" />\n    </div>\n  </div>\n\n  <div class=\"large-9 columns\">\n    <h3 class=\"white-shadow\">\n      Good ");
+    data.buffer.push("<header class=\"row main\">\n  <div class=\"large-3 small-4 columns\">\n    <div class=\"profile-image\">\n      <img src=\"img/rocky.jpg\" alt=\"Picture of Rocky\" height=\"200\" width=\"200\" />\n    </div>\n  </div>\n\n  <div class=\"large-9 small-8 columns\">\n    <h3 class=\"white-shadow\">\n      Good ");
     hashTypes = {};
     hashContexts = {};
     data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "App.timeOfDay", {hash:{}, contexts:[depth0], types:["ID"], hashContexts:hashContexts, hashTypes:hashTypes, data:data})));
-    data.buffer.push(", <br />\n      My name is Rocky. Viking Glory is the name of my company. This site is a\n      place for me to share ideas and articles related to software development.\n    </h3>\n  </div>\n</header>");
+    data.buffer.push(", <br />\n      \n      <span class=\"show-for-medium-up\">\n        My name is Rocky. Viking Glory is the name of my company. This site is a\n        place for me to share ideas and articles related to web development.\n      </span>\n\n      <h6 class=\"subheader show-for-small-only\">\n        My Name is Rocky. <br />\n        Welcome to Viking Glory.\n      </h6>\n    </h3>\n  </div>\n</header>");
     return buffer;
 }
 );

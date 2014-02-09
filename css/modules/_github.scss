@@ -1,0 +1,10 @@
+.github-link {
+  color: $github-color;
+
+  &:active,
+  &:focus,
+  &:hover,
+  &:visited {
+    color: darken($github-color, 5%);
+  }
+}
