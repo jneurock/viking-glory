@@ -183,12 +183,12 @@ App.ApplicationController = Ember.Controller.extend({
         App.Nav
           .set('isPathProjects', true)
           .set('isPathHome', false)
-          .set('isPathGists', false);
+          .set('isPathArticles', false);
 
-      } else if (currentPath.indexOf('gists') !== -1) {
+      } else if (currentPath.indexOf('articles') !== -1) {
 
         App.Nav
-          .set('isPathGists', true)
+          .set('isPathArticles', true)
           .set('isPathHome', false)
           .set('isPathProjects', false);
       }
@@ -197,7 +197,7 @@ App.ApplicationController = Ember.Controller.extend({
 
       App.Nav
         .set('isPathHome', true)
-        .set('isPathGists', false)
+        .set('isPathArticles', false)
         .set('isPathProjects', false);
     }
 

@@ -1,6 +1,10 @@
 App.Router.map(function() {
   
-  this.resource('gists', function() {
+  this.resource('articles', function() {
+
+    this.route('article', {
+      path: '/:post_id'
+    });
 
     this.route('page', {
       path: '/page/:page_id'
@@ -20,7 +24,7 @@ App.Router.map(function() {
     });
 
     this.route('project', {
-      path: '/project/:post_id'
+      path: '/:post_id'
     });
   });
 });

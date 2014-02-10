@@ -10,14 +10,14 @@ App.Nav = Ember.Object.create();
 App.Nav.reopen({
   // Properties
   /**
-   * Whether or not the current path is "Gists"
+   * Whether or not the current path is "Articles"
    *
    * @memberof App.Nav
    * @instance
    * @default
    * @type {boolean}
    */
-  isPathGists: false,
+  isPathArticles: false,
   /**
    * Whether or not the current path is "Home"
    *

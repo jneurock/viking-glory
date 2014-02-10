@@ -6,6 +6,17 @@
  * @extends external:Ember.Route
  */
 App.IndexRoute = Ember.Route.extend({
+  // Properties
+  /**
+   * The page title
+   *
+   * @memberof App.IndexRoute
+   * @instance
+   * @type {string}
+   */
+  pageTitle: 'Home',
+
+  // Overrides
   /**
    * Specify the route's model
    *

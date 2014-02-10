@@ -86,10 +86,10 @@ function anonymous(Handlebars, depth0, helpers, partials, data) {
         data.buffer.push("Home");
     }
     function program3(depth0, data) {
-        data.buffer.push("Projects");
+        data.buffer.push("Articles");
     }
     function program5(depth0, data) {
-        data.buffer.push("Gists");
+        data.buffer.push("Projects");
     }
     data.buffer.push("<nav class=\"row\">\n  <div class=\"columns\">\n    <dl class=\"sub-nav\">\n      <dd ");
     hashContexts = {"class":depth0};
@@ -106,24 +106,24 @@ function anonymous(Handlebars, depth0, helpers, partials, data) {
     data.buffer.push("\n      </dd>\n\n      <dd ");
     hashContexts = {"class":depth0};
     hashTypes = {"class":"STRING"};
-    data.buffer.push(escapeExpression(helpers["bind-attr"].call(depth0, {hash:{"class":("App.Nav.isPathProjects:active")}, contexts:[], types:[], hashContexts:hashContexts, hashTypes:hashTypes, data:data})));
+    data.buffer.push(escapeExpression(helpers["bind-attr"].call(depth0, {hash:{"class":("App.Nav.isPathArticles:active")}, contexts:[], types:[], hashContexts:hashContexts, hashTypes:hashTypes, data:data})));
     data.buffer.push(">\n        ");
     hashContexts = {"title":depth0};
     hashTypes = {"title":"STRING"};
-    options = {hash:{"title":("Projects")}, inverse:self.noop, fn:self.program(3, program3, data), contexts:[depth0], types:["STRING"], hashContexts:hashContexts, hashTypes:hashTypes, data:data};
-    stack2 = ((stack1 = helpers["link-to"] || (depth0 && depth0["link-to"])), stack1 ? stack1.call(depth0, "projects", options) : helperMissing.call(depth0, "link-to", "projects", options));
+    options = {hash:{"title":("Articles")}, inverse:self.noop, fn:self.program(3, program3, data), contexts:[depth0], types:["STRING"], hashContexts:hashContexts, hashTypes:hashTypes, data:data};
+    stack2 = ((stack1 = helpers["link-to"] || (depth0 && depth0["link-to"])), stack1 ? stack1.call(depth0, "articles", options) : helperMissing.call(depth0, "link-to", "articles", options));
     if (stack2 || stack2 === 0) {
         data.buffer.push(stack2);
     }
     data.buffer.push("\n      </dd>\n\n      <dd ");
     hashContexts = {"class":depth0};
     hashTypes = {"class":"STRING"};
-    data.buffer.push(escapeExpression(helpers["bind-attr"].call(depth0, {hash:{"class":("App.Nav.isPathGists:active")}, contexts:[], types:[], hashContexts:hashContexts, hashTypes:hashTypes, data:data})));
+    data.buffer.push(escapeExpression(helpers["bind-attr"].call(depth0, {hash:{"class":("App.Nav.isPathProjects:active")}, contexts:[], types:[], hashContexts:hashContexts, hashTypes:hashTypes, data:data})));
     data.buffer.push(">\n        ");
     hashContexts = {"title":depth0};
     hashTypes = {"title":"STRING"};
-    options = {hash:{"title":("Gists")}, inverse:self.noop, fn:self.program(5, program5, data), contexts:[depth0], types:["STRING"], hashContexts:hashContexts, hashTypes:hashTypes, data:data};
-    stack2 = ((stack1 = helpers["link-to"] || (depth0 && depth0["link-to"])), stack1 ? stack1.call(depth0, "gists", options) : helperMissing.call(depth0, "link-to", "gists", options));
+    options = {hash:{"title":("Projects")}, inverse:self.noop, fn:self.program(5, program5, data), contexts:[depth0], types:["STRING"], hashContexts:hashContexts, hashTypes:hashTypes, data:data};
+    stack2 = ((stack1 = helpers["link-to"] || (depth0 && depth0["link-to"])), stack1 ? stack1.call(depth0, "projects", options) : helperMissing.call(depth0, "link-to", "projects", options));
     if (stack2 || stack2 === 0) {
         data.buffer.push(stack2);
     }
@@ -321,12 +321,12 @@ function anonymous(Handlebars, depth0, helpers, partials, data) {
     return buffer;
 }
 );
-  templates['gists'] = template(
+  templates['articles'] = template(
 function anonymous(Handlebars, depth0, helpers, partials, data) {
     this.compilerInfo = [4, ">= 1.0.0"];
     helpers = this.merge(helpers, Ember.Handlebars.helpers);
     data = data || {};
-    data.buffer.push("<h2>&#9678; gists</h2>\n\n<p>\n  Nothing here, yet. Soon... very soon.\n</p>");
+    data.buffer.push("<article class=\"row\">\n  <div class=\"columns\">\n    <header>\n      <h3>Articles</h3>\n    </header>\n\n    <section>\n      <p>\n        Nothing here, yet. Soon... very soon.\n      </p>\n    </section>\n  </div>\n</article>");
 }
 );
   templates['post'] = template(
@@ -371,19 +371,6 @@ function anonymous(Handlebars, depth0, helpers, partials, data) {
     hashContexts = {};
     options = {hash:{}, contexts:[depth0], types:["STRING"], hashContexts:hashContexts, hashTypes:hashTypes, data:data};
     data.buffer.push(escapeExpression(((stack1 = helpers.partial || (depth0 && depth0.partial)), stack1 ? stack1.call(depth0, "pagination", options) : helperMissing.call(depth0, "partial", "pagination", options))));
-    return buffer;
-}
-);
-  templates['projects'] = template(
-function anonymous(Handlebars, depth0, helpers, partials, data) {
-    this.compilerInfo = [4, ">= 1.0.0"];
-    helpers = this.merge(helpers, Ember.Handlebars.helpers);
-    data = data || {};
-    var buffer = "", hashTypes, hashContexts, escapeExpression = this.escapeExpression;
-    data.buffer.push("<h2>&#9678; projects</h2>\n\n");
-    hashTypes = {};
-    hashContexts = {};
-    data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "outlet", {hash:{}, contexts:[depth0], types:["ID"], hashContexts:hashContexts, hashTypes:hashTypes, data:data})));
     return buffer;
 }
 );

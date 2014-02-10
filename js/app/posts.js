@@ -101,6 +101,8 @@ App.Post.reopenClass({
           // Success
           function(response) {
 
+            App.setPageTitle(response.title);
+
             return response;
           },
 
