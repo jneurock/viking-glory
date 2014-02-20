@@ -24,3 +24,7 @@ Thumbs.db
 # JSDoc #
 #########
 docs/
+
+# Design directory #
+####################
+design/

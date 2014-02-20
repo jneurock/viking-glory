@@ -1,4 +1,6 @@
 article {
+  border-bottom: 1px dashed $box-shadow-color;
+
   header {
     h3 {
       color: $primary-color;
@@ -8,5 +10,9 @@ article {
     .subheader {
       line-height: 1;
     }
+  }
+
+  &.last {
+    border-bottom: none;
   }
 }

@@ -69,7 +69,7 @@ App.ProjectsPageRoute = Ember.Route.extend({
 
     this.render('posts');
   }
-})
+});
 
 /**
  * An Ember route for a single project page
@@ -89,4 +89,4 @@ App.ProjectsProjectRoute = Ember.Route.extend({
 
     this.render('post');
   }
-})
+});

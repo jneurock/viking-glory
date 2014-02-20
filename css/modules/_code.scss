@@ -7,5 +7,9 @@
   code {
     color: lighten($body-font-color, 25%);
     font-weight: normal;
+
+    .comment {
+      color: lighten($body-font-color, 50%);
+    }
   }
 }

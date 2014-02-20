@@ -56,6 +56,9 @@ App.Posts.reopenClass({
           posts = posts.slice(startPostIndex, endPostIndex);
         }
 
+        // Decorate last post to indicate it is the last one in list
+        posts[posts.length - 1].last = true;
+
         return posts;
       },
 
@@ -102,6 +105,9 @@ App.Post.reopenClass({
           function(response) {
 
             App.setPageTitle(response.title);
+
+            // Indicate this is the last post so no border is added
+            response.last = true;
 
             return response;
           },

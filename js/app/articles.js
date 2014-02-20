@@ -47,7 +47,7 @@ App.ArticlesIndexRoute = Ember.Route.extend({
  * @constructor
  * @extends external:Ember.Route
  */
-App.AticlesPageRoute = Ember.Route.extend({
+App.ArticlesPageRoute = Ember.Route.extend({
   /**
    * Specify the route's model
    *
@@ -69,7 +69,7 @@ App.AticlesPageRoute = Ember.Route.extend({
 
     this.render('posts');
   }
-})
+});
 
 /**
  * An Ember route for a single article page
@@ -89,4 +89,4 @@ App.ArticlesArticleRoute = Ember.Route.extend({
 
     this.render('post');
   }
-})
+});
