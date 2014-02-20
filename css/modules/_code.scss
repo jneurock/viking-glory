@@ -6,7 +6,10 @@
 
   code {
     color: lighten($body-font-color, 25%);
+    display: block;
     font-weight: normal;
+    overflow-x: auto;
+    white-space: nowrap;
 
     .comment {
       color: lighten($body-font-color, 50%);
