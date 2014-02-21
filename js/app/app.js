@@ -61,6 +61,11 @@ Ember.Route = Ember.Route.extend({
 
         App.setTimeOfDay();
 
+        // Scroll to top
+        $('html, body').animate({
+          scrollTop: 0
+        });
+
         // Initialize Foundation
         $(document).foundation();
       });
