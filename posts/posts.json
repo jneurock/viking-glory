@@ -1,7 +1,6 @@
 [{
     "id": "ember-dom-ready",
     "category": "articles",
-    "path": "articles.article",
     "title": "Ember DOM Ready",
     "summary": "<p>Ember is awesome, in my biased opinion, but it presents interesting new challenges for developers. One of the most common patterns used in web development is to handle a DOM ready event but relying on that in a one-page application isn't possible.</p>",
     "created": "02/19/2014",
@@ -9,7 +8,6 @@
   }, {
     "id": "viking-base",
     "category": "projects",
-    "path": "projects.project",
     "title": "Viking Base",
     "summary": "<p>The Viking Base is a set of front-end technologies that have been combined to create a solid platform with which to build web applications. It combines Ember, Handlebars and Foundation with the HTML5 Boilerplate Ant Built Script.</p>",
     "created": "01/16/2014",

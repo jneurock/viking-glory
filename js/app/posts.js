@@ -25,26 +25,22 @@ App.Posts.reopenClass({
       // Success
       function(response) {
 
-        var i = 0,
+        var endPostIndex = 0,
+            i = 0,
             posts = [],
             postsPerPage = App.get('postsPerPage') || 5,
-            startPostIndex = 0,
-            endPostIndex = 0;
+            startPostIndex = 0;
 
-        // Filter out any unwanted posts
-        if (category) {
+        for (i = 0; i < response.length; i++) {
 
-          for (i = 0; i < response.length; i++) {
+          // Add "path" property to post
+          response[i].path = response[i].category + '.' + response[i].category.slice(0, -1);
 
-            if (response[i].category === category) {
+          // Filter out any unwanted posts
+          if (!category || response[i].category === category) {
 
-              posts.push(response[i]);
-            }
+            posts.push(response[i]);
           }
-
-        } else {
-
-          posts = response;
         }
 
         // Limit posts by page number
@@ -94,7 +90,7 @@ App.Post.reopenClass({
 
     try {
 
-      if (typeof id !== 'undefined') {
+      if (id) {
 
         return $.ajax('posts/' + id + '.json', {
           // Temp: Set JSON type in global AJAX settings
