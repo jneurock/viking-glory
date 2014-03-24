@@ -5,6 +5,7 @@ intermediate/
 publish/
 target/
 .metadata
+js/templates/templates.js
 
 # OS generated files #
 ######################
