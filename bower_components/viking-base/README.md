@@ -8,10 +8,10 @@ The package exists to accomplish a few main goals:
 
 Currently, the package consists of:
 
-* Ember 1.3.1
+* Ember 1.5
 * Handlebars 1.1.2
-* Foundation 5.0.3
-* HTML5 Boilerplate Ant Build Script 1.0
+* Foundation 5.2.1
+* HTML5 Boilerplate Ant Build Script
 * HTML5 Boilerplate 4.3
 * Modernizr 2.7.1
 * Respond 1.4.1
@@ -29,7 +29,7 @@ bower install viking-base
 node bower_components/viking-base/example-install
 
 # Build the debug version of the Hello Vikings app with Maven or Ant
-mvn clean package -P debug
+mvn clean package -D target=debug
 or
 ant -f bower_components/viking-base/build-custom debug
 ```
@@ -68,6 +68,7 @@ You can build your project with Maven or Ant. The build command should be execut
 * debugcss - Concatenates but does not minify CSS files.
 * debugdocs - Same as "debug" target but also generates JSDoc documentation.
 * debughbs - If you just need to publish updates to your Handlebars templates.
+* debugjs - If you just need to publish updates to your JavaScript files.
 * docs - Generates JSDoc documentation only.
 
 When the build is finished, you should have a publish directory containing your project output (unless only building documentation). Documentation will be output to the "docs" directory in the project root.
@@ -79,16 +80,20 @@ No target:
 `mvn clean package`
 
 Some target:
-`mvn clean package -P <target-name>`
+`mvn clean package -D target=<target-name>`
 
 ## Building with Ant
 `ant -f bower_components/viking-base/build-custom <optional-target-name>`
 
 ## Skipping the Jar Target
 By default, the build will Jar the contents of your project. If you don't want this behavior you can set the "jarPhase" property to "never" from the command line:
-`mvn clean package -DjarPhase=never`
+`mvn clean package -D jarPhase=never`
 or
 `ant -f bower_components/viking-base/build-custom -DjarPhase=never`
+
+Note that Ant requires no space between the -D flag and the following property where as Maven does allow for a space.
+
+If you really don't want to ever Jar the contents of your project, you can edit the POM and set &lt;jarPhase&gt;never&lt;/jarPhase&gt; instead of the default which is "package".
 
 ## Customizing the build
 It's possible to customize your build by adding your own build.xml file. In your build file you would include the base build file found at bower_components/viking-base/build-custom/build.xml. You can add new targets, override existing targets, add new properties or override existing properties. You can then tell Ant to use your build file or modify the POM so Maven will use it.
