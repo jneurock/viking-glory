@@ -1,29 +1,23 @@
 {
   "name": "viking-base",
-  "version": "2.1.0",
-  "ignore": [
-    ".gitignore",
-    "bower.json",
-    "pom.xml",
-    "target"
-  ],
+  "version": "3.0.0",
   "dependencies": {
-    "ember-starter-kit": "1.5.0",
-    "foundation": "5.2.1",
+    "ember-starter-kit": "1.5.1",
+    "foundation": "5.2.2",
     "handlebars": "1.1.2",
-    "jquery": "2.1.0",
-    "modernizr": "2.7.1",
-    "respond": "1.4.1"
+    "jquery": "2.1.1",
+    "modernizr": "2.8.1",
+    "respond": "1.4.2"
   },
   "homepage": "https://github.com/jneurock/viking-base",
-  "_release": "2.1.0",
+  "_release": "3.0.0",
   "_resolution": {
     "type": "version",
-    "tag": "v2.1.0",
-    "commit": "8cfc7b25ee1e3198e4c4f115a53b4e33908834bd"
+    "tag": "v3.0.0",
+    "commit": "bedaa478ec178232195037e3e1de73572d9495b1"
   },
   "_source": "git://github.com/jneurock/viking-base.git",
-  "_target": "2.1.0",
+  "_target": "~3.0.0",
   "_originalSource": "viking-base",
   "_direct": true
 }

@@ -1,11 +1,7 @@
 # Build output #
 ################
-.sass-cache/
-intermediate/
+js/templates.js
 publish/
-target/
-.metadata
-js/templates/templates.js
 
 # OS generated files #
 ######################
@@ -29,3 +25,7 @@ docs/
 # Design directory #
 ####################
 design/
+
+# node.js modules #
+###################
+node_modules/
