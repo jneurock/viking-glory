@@ -1,4 +1,5 @@
-[{
+[
+  {
     "id": "ember-dom-ready",
     "category": "articles",
     "title": "Ember DOM Ready",
@@ -9,7 +10,8 @@
     "id": "viking-base",
     "category": "projects",
     "title": "Viking Base",
-    "summary": "<p>The Viking Base is a set of front-end technologies that have been combined to create a solid platform with which to build web applications. It combines Ember, Handlebars and Foundation with the HTML5 Boilerplate Ant Built Script.</p>",
+    "summary": "<p>Viking Base is an opinionated package intended to provide a solid starting point for building web applications. The package consists of several key components: Ember.js, Handlebars.js, Foundation and gulp. Viking Base leans on Bower to manage dependencies and gulp to build while providing a simple scaffolding script.</p>",
     "created": "01/16/2014",
-    "modified": "04/03/2014"
-}]
+    "modified": "05/11/2014"
+  }
+]
