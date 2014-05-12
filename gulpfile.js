@@ -1,12 +1,11 @@
-var rootPath = '',
-    cleanOpts = {
-      docs: rootPath + 'docs',
+var cleanOpts = {
+      docs: 'docs',
       force: {
         force: true
       },
       paths: [
-        rootPath + 'js/templates.js',
-        rootPath + 'publish'
+        'js/templates.js',
+        'publish'
       ],
       read: {
         read: false
@@ -19,25 +18,30 @@ var rootPath = '',
     jsHash = 'main.js',
     output = {
       css: 'css/',
-      docs: rootPath + 'docs',
-      hbs: rootPath + 'js',
+      docs: 'docs',
+      hbs: 'js',
       img: 'img/',
       js: 'js/',
       jsVendor: 'js/vendor/',
-      publish: rootPath + 'publish/'
+      publish: 'publish/'
     },
     plugins = require('gulp-load-plugins')(),
     prod = false,
     sources = {
-      hbs: rootPath + 'hbs/**/*.hbs',
-      html: rootPath + '*.html',
-      img: rootPath + 'img/**/*.*',
-      js: rootPath + 'js/**/*.js',
+      hbs: 'hbs/**/*.hbs',
+      html: '*.html',
+      img: 'img/**/*.*',
+      js: 'js/**/*.js',
       jsDoc: [
-        rootPath + 'js/*.js',
-        rootPath + 'js/app/**/*.js'
+        'js/*.js',
+        'js/app/**/*.js'
       ],
-      sass: rootPath + 'scss/style.scss'
+      root: [
+        '*.ico',
+        '*.png',
+        '*.txt'
+      ],
+      sass: 'scss/style.scss'
     },
     util = require('util'),
     watch = false;
@@ -90,29 +94,16 @@ plugins.htmlbuild.preprocess.js = function ( buildFn ) {
 };
 
 // Called by the gulp-htmlbuild plugin
-function gulpSrc( opts, jsDev, cb ) {
+function gulpSrc( opts, cb ) {
 
   var files = es.through(),
       paths = es.through();
 
   paths.pipe( es.writeArray(function( err, sources ) {
 
-    var i = 0,
-        jsDevSources = [];
-
-    for ( ; i < sources.length; i++ ) {
-
-      if ( jsDev ) {
-
-        jsDevSources.push( sources[i] );
-      }
-
-      sources[i] = rootPath + sources[i];
-    }
-
     if ( cb ) {
 
-      cb( jsDevSources );
+      cb( sources );
     }
 
     gulp.src( sources, opts )
@@ -199,6 +190,13 @@ gulp.task('posts', function() {
     .pipe( gulp.dest( 'publish/posts/' ) );
 });
 
+// Get root files into publish folder
+gulp.task('root', function() {
+
+  return gulp.src( sources.root )
+    .pipe( gulp.dest( output.publish ) );
+});
+
 // Compile Sass
 gulp.task('sass', ['fonts', 'img'], function() {
 
@@ -208,7 +206,7 @@ gulp.task('sass', ['fonts', 'img'], function() {
 });
 
 // This is the main build target
-gulp.task('build', ['fonts', 'handlebars', 'img', 'js-doc', 'posts'], function() {
+gulp.task('build', ['fonts', 'handlebars', 'img', 'js-doc', 'posts', 'root'], function() {
 
   return gulp.src( sources.html )
     .pipe( plugins.htmlbuild({
@@ -230,7 +228,7 @@ gulp.task('build', ['fonts', 'handlebars', 'img', 'js-doc', 'posts'], function()
         if ( !prod ) {
 
           block
-            .pipe( gulpSrc( null, true, function( sources ) {
+            .pipe( gulpSrc( null, function( sources ) {
 
               block.end( replaceJsSources( sources ) );
             }))
@@ -251,7 +249,7 @@ gulp.task('build', ['fonts', 'handlebars', 'img', 'js-doc', 'posts'], function()
       jsvendor: plugins.htmlbuild.preprocess.js(function( block ) {
 
         block
-          .pipe( gulpSrc( null, true, function( sources ) {
+          .pipe( gulpSrc( null, function( sources ) {
 
             block.end( replaceJsSources( sources, true ) );
           }))
