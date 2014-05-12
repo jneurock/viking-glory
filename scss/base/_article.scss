@@ -12,7 +12,9 @@ article {
     }
   }
 
-  &.last {
-    border-bottom: none;
+  @media #{$large-up} {
+    &.last {
+      border-bottom: none;
+    } 
   }
 }

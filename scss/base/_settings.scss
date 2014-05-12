@@ -11,7 +11,7 @@ $primary-color: #578c24;
 $primary-gradient-color1: lighten($primary-color, 5%);
 $primary-gradient-color2: darken($primary-color, 5%);
 $white: #fff;
-$white-shadow-color: #f0f0f0;
+$white-shadow-color: rgba(255,255,255,0.45);
 
 // Border Radius
 $global-radius: 4px;

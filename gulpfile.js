@@ -89,12 +89,6 @@ plugins.htmlbuild.preprocess.js = function ( buildFn ) {
   };
 };
 
-// Hash some input value
-function hash( input ) {
-
-  return crypto.createHash('sha1').update( input ).digest('hex');
-}
-
 // Called by the gulp-htmlbuild plugin
 function gulpSrc( opts, jsDev, cb ) {
 
@@ -128,6 +122,12 @@ function gulpSrc( opts, jsDev, cb ) {
   return es.duplex( paths, files );
 }
 
+// Hash some input value
+function hash( input ) {
+
+  return crypto.createHash('sha1').update( input ).digest('hex');
+}
+
 // Replace JavaScript output paths
 function replaceJsSources( sources, vendor ) {
 
@@ -158,6 +158,12 @@ gulp.task('clean-docs', function() {
 
   return gulp.src( cleanOpts.docs, cleanOpts.read )
     .pipe( plugins.clean( cleanOpts.force ) );
+});
+
+gulp.task('fonts', function() {
+
+  return gulp.src( 'fonts/**/*.*' )
+    .pipe( gulp.dest('publish/fonts/') );
 });
 
 // Compile Handlebars templates
@@ -194,7 +200,7 @@ gulp.task('posts', function() {
 });
 
 // Compile Sass
-gulp.task('sass', ['img'], function() {
+gulp.task('sass', ['fonts', 'img'], function() {
 
   return gulp.src( sources.sass )
     .pipe( plugins.sass() )
@@ -202,7 +208,7 @@ gulp.task('sass', ['img'], function() {
 });
 
 // This is the main build target
-gulp.task('build', ['handlebars', 'img', 'js-doc', 'posts'], function() {
+gulp.task('build', ['fonts', 'handlebars', 'img', 'js-doc', 'posts'], function() {
 
   return gulp.src( sources.html )
     .pipe( plugins.htmlbuild({
@@ -282,7 +288,7 @@ gulp.task('watch', function() {
 
   gulp.watch( sources.sass, ['sass'] );
 
-  gulp.watch( sources.hbs, ['handlebarsWatch'] );
+  gulp.watch( sources.hbs, ['handlebars'] );
 });
 
 // The is what Gulp runs by default
