@@ -84,15 +84,18 @@ App.Post.reopenClass({
    * @memberof App.Post
    * @instance
    * @param {string} id The model's ID
+   * @param {string} [category] The optional post category
    * @returns {Object}
    */
-  find: function(id) {
+  find: function(id, category) {
 
     try {
 
       if (id) {
 
-        return $.ajax('posts/' + id + '.json', {
+        category = category ? category + '/' : '';
+
+        return $.ajax('posts/' + category + id + '.json', {
           // Temp: Set JSON type in global AJAX settings
           contentType: 'json'
           // End Temp

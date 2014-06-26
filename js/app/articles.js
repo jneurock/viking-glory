@@ -80,9 +80,21 @@ App.ArticlesPageRoute = Ember.Route.extend({
  */
 App.ArticlesArticleRoute = Ember.Route.extend({
   /**
+   * The route's model
+   *
+   * @memberof App.ArticlesArticleRoute
+   * @instance
+   * @param {Object} params
+   * @returns {Object}
+   */
+  model: function(params) {
+
+    return App.Post.find(params.post_id, 'articles');
+  },
+  /**
    * Render the post template
    *
-   * @memberof App.ProjectsProjectRoute
+   * @memberof App.ArticlesArticleRoute
    * @instance
    */
   renderTemplate: function() {

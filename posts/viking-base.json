@@ -1,7 +1,0 @@
-{
-  "id": "viking-base",
-  "title": "Viking Base",
-  "body": "<p>Viking Base is an opinionated package intended to provide a solid starting point for building web applications. The package consists of several key components: Ember.js, Handlebars.js, Foundation and gulp. Viking Base leans on Bower to manage dependencies and gulp to build while providing a simple scaffolding script.</p><p>Currently, the package consists of:</p><ul><li>Ember.js 1.5.1</li><li>Handlebars.js 1.1.2</li><li>Foundation 5.2.2</li><li>Modernizr 2.8.1</li><li>Respond 1.4.2</li></ul><p><a href=\"https://github.com/jneurock/viking-base\">See the project on GitHub for more details.</a></p>",
-  "created": "01/16/2014",
-  "modified": "05/11/2014"
-}

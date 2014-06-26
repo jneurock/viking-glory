@@ -19,26 +19,26 @@
 
       <h4 class="subheader">
         <small>
-          {{#if modified}}
-            Updated {{modified}}
-            &nbsp;//&nbsp;
-          {{/if}}
-
           Posted {{created}}
+
+          {{#if updated}}
+            &nbsp;//&nbsp;
+            Updated {{updated}}
+          {{/if}}
         </small>
       </h4>
     </header>
 
-    {{#if body}}
+    {{#if model.content}}
       <section class="row">
         <div class="columns">
-          {{{body}}}
+          {{{model.content}}}
         </div>
       </section>
     {{else}}
       <section class="row">
         <div class="columns">
-          {{{summary}}}
+          {{{excerpt}}}
         </div>
       </section>
 

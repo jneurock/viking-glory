@@ -80,6 +80,18 @@ App.ProjectsPageRoute = Ember.Route.extend({
  */
 App.ProjectsProjectRoute = Ember.Route.extend({
   /**
+   * The route's model
+   *
+   * @memberof App.ProjectsProjectRoute
+   * @instance
+   * @param {Object} params
+   * @returns {Object}
+   */
+  model: function(params) {
+
+    return App.Post.find(params.post_id, 'projects');
+  },
+  /**
    * Render the post template
    *
    * @memberof App.ProjectsProjectRoute
