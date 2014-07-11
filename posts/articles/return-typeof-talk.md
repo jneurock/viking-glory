@@ -2,7 +2,7 @@
 id: return-typeof-talk
 title: Ember Meetup 6/17/2014
 category: articles
-exceprt: I recently spoke at the Ember Meetup in Portland, OR on June 17th, 2014. My talk was about types and how understanding them better can lead to new problem-solving ideas as well as understanding some of the more advanced concepts that are often discussed in the Ember community.
+excerpt: I recently spoke at the Ember Meetup in Portland, OR on June 17th, 2014. My talk was about types and how understanding them better can lead to new problem-solving ideas as well as understanding some of the more advanced concepts that are often discussed in the Ember community.
 created: 6/18/2014
 ---
 

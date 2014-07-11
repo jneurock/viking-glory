@@ -17,11 +17,7 @@ App.Posts.reopenClass({
    */
   findAll: function(category, page) {
 
-    return $.ajax('posts/posts.json', {
-      // Temp: Set JSON type in global AJAX settings
-      contentType: 'json'
-      // End Temp
-    }).then(
+    return $.ajax('posts/posts.json').then(
       // Success
       function(response) {
 
@@ -95,11 +91,7 @@ App.Post.reopenClass({
 
         category = category ? category + '/' : '';
 
-        return $.ajax('posts/' + category + id + '.json', {
-          // Temp: Set JSON type in global AJAX settings
-          contentType: 'json'
-          // End Temp
-        }).then(
+        return $.ajax('posts/' + category + id + '.json').then(
           // Success
           function(response) {
 

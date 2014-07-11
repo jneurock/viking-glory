@@ -1,12 +1,11 @@
 @media #{$small-only} {
+  code {
+    overflow-x: auto;
+  }
+
   header.main {
     h3 {
       margin: 0;
     }
-  }
-
-  code {
-    overflow-x: auto;
-    white-space: nowrap;
   }
 }

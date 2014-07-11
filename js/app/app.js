@@ -91,6 +91,14 @@ App = Ember.Application.create({
    */
   intoLatelyItems: [],
   /**
+   * Whether or not the application is loading
+   *
+   * @memberof App
+   * @instance
+   * @type {boolean}
+   */
+  isLoading: false,
+  /**
    * The number of posts per page to render
    *
    * @memberof App
@@ -116,6 +124,14 @@ App = Ember.Application.create({
    * @type {string}
    */
   timeOfDay: '',
+  /**
+   * A timeout function for AJAX calls
+   *
+   * @memberof App
+   * @instance
+   * @type {function}
+   */
+  timeout: null,
 
   // Methods
   /**

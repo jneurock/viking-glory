@@ -1,3 +1,15 @@
+// Pre
+pre {
+  display: block;
+  margin-bottom: $paragraph-margin-bottom;
+
+  code {
+    border: 1px solid $box-shadow-color;
+    border-radius: $global-radius;
+  }
+}
+
+// Margin/Padding
 .no-margin {
   margin: 0;
 }

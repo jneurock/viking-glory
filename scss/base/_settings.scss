@@ -1,7 +1,6 @@
 // Various global styles
 $body-bg: #eee;
 $body-font-color: #333;
-$code-bg: #f8f8f8;
 
 // Colors
 $box-shadow-color: #c1c1c1;
@@ -24,12 +23,16 @@ $global-radius: 4px;
 $header-font-weight: bold;
 $header-font-color: $body-font-color;
 
+// We use these to style <code> tags
+$code-font-weight: normal;
+
 // Style anchors
 $anchor-text-decoration: underline;
 
 //
 // Sub Nav Variables
 //
+
 $sub-nav-list-margin: em-calc(-4 0 16);
 $sub-nav-list-padding-top: 1em;
 $sub-nav-font-color: $primary-color;
