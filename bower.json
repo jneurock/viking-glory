@@ -1,12 +1,19 @@
 {
-  "name": "viking-base",
-  "version": "3.0.0",
+  "name": "viking-glory",
+  "version": "0.0.0",
+  "homepage": "https://github.com/jneurock/viking-glory",
+  "authors": [
+    "Rocky Neurock <James.Neurock@cambiahealth.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
   "dependencies": {
-    "ember-starter-kit": "1.5.1",
-    "foundation": "5.2.2",
-    "handlebars": "1.1.2",
-    "jquery": "2.1.1",
-    "modernizr": "2.8.1",
-    "respond": "1.4.2"
+    "viking-base": "4.0.0"
   }
 }
