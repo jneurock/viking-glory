@@ -15,6 +15,7 @@ Thumbs.db
 
 # Build output #
 ################
+js/templates.js
 publish/
 
 # JSDoc #
