@@ -13,6 +13,7 @@ module.exports = function( gulp, plugins, vb, cb ) {
 
   // Task updates
   vb.tasks.build.depends = [
+    'css',
     'fonts',
     'handlebars',
     'img',
