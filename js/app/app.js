@@ -37,6 +37,22 @@
  * @see {@link http://emberjs.com/api/classes/Ember.Controller.html}
  */
 
+/**
+ * Ember's Array Controller class
+ *
+ * @name external:Ember.ArrayController
+ * @class
+ * @see {@link http://emberjs.com/api/classes/Ember.ArrayController.html}
+ */
+
+/**
+ * Ember's Component class
+ *
+ * @name external:Ember.Component
+ * @class
+ * @see {@link http://emberjs.com/api/classes/Ember.Component.html}
+ */
+
 /*
  * Extend Ember's Route class. Add some default functionality to
  * the "beforeModel" hook.
@@ -188,39 +204,16 @@ App = Ember.Application.create({
  */
 App.ApplicationController = Ember.Controller.extend({
   /**
-   * Handles changes to the "currentPath" property
+   * Provide a reference to the instance of
+   * App.ApplicationController to the App object
    *
    * @memberof App.ApplicationController
    * @event
    */
-  currentPathChanged: function() {
+  init: function() {
 
-    var currentPath = this.get('currentPath') || '';
+    this._super();
 
-    if (currentPath.indexOf('.') !== -1) {
-
-      if (currentPath.indexOf('projects') !== -1) {
-
-        App.Nav
-          .set('isPathProjects', true)
-          .set('isPathHome', false)
-          .set('isPathArticles', false);
-
-      } else if (currentPath.indexOf('articles') !== -1) {
-
-        App.Nav
-          .set('isPathArticles', true)
-          .set('isPathHome', false)
-          .set('isPathProjects', false);
-      }
-
-    } else if (currentPath.indexOf('index') !== -1) {
-
-      App.Nav
-        .set('isPathHome', true)
-        .set('isPathArticles', false)
-        .set('isPathProjects', false);
-    }
-
-  }.observes('currentPath')
+    App.set('applicationController', this);
+  }
 });

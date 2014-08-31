@@ -1,17 +1,9 @@
 <nav class="row">
   <div class="columns">
     <dl class="sub-nav">
-      <dd {{bind-attr class="App.Nav.isPathHome:active"}}>
-        {{#link-to "index" title="Home"}}Home{{/link-to}}
-      </dd>
-
-      <dd {{bind-attr class="App.Nav.isPathArticles:active"}}>
-        {{#link-to "articles" title="Articles"}}Articles{{/link-to}}
-      </dd>
-
-      <dd {{bind-attr class="App.Nav.isPathProjects:active"}}>
-        {{#link-to "projects" title="Projects"}}Projects{{/link-to}}
-      </dd>
+      {{#each App.NavItems}}
+        {{nav-item path=path title=title url=url}}
+      {{/each}}
     </dl>
   </div>
 </nav>

@@ -102,3 +102,24 @@ App.ProjectsProjectRoute = Ember.Route.extend({
     this.render('post');
   }
 });
+
+/**
+ * An Ember controller for the projects home page
+ *
+ * @memberof App
+ * @constructor
+ * @extends external:Ember.ArrayController
+ */
+App.ProjectsIndexController = Ember.ArrayController.extend({
+  /**
+   * Meta information about the page
+   *
+   * @memberof App.ProjectsIndexController
+   * @instance
+   * @type {Object}
+   */
+  meta: {
+    title: 'Projects',
+    description: 'This is where I post about my projects. I intend to keep these posts short so you can get an introduction and then dive into the code as quickly as possible.'
+  }
+});

@@ -1,3 +1,4 @@
+// Define the routes for the application
 App.Router.map(function() {
   
   this.resource('articles', function() {
@@ -10,6 +11,8 @@ App.Router.map(function() {
       path: '/page/:page_id'
     });
   });
+
+  this.route('friends');
 
   this.route('post', {
     path: '/post/:post_id'
@@ -28,3 +31,33 @@ App.Router.map(function() {
     });
   });
 });
+
+/**
+ * A list of nav items
+ *
+ * @memberof App
+ * @instance
+ * @type {Array.<Object>}
+ */
+App.NavItems = [
+  {
+    path: 'index',
+    title: 'Home',
+    url: '#/'
+  },
+  {
+    path: 'articles',
+    title: 'Articles',
+    url: '#/articles'
+  },
+  {
+    path: 'projects',
+    title: 'Projects',
+    url: '#/projects'
+  },
+  {
+    path: 'friends',
+    title: 'Friends',
+    url: '#/friends'
+  }
+];

@@ -8,4 +8,15 @@
       margin: 0;
     }
   }
+
+  .sub-nav dt,
+  .sub-nav dd,
+  .sub-nav li {
+    margin-left: 0.5rem;
+
+    a,
+    a.active {
+      padding: 0.5em;
+    }
+  }
 }

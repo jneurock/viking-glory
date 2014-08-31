@@ -1,10 +1,10 @@
 @font-face {
   font-family: "icomoon";
-  src:url("../fonts/icomoon.eot?-a2fzex");
-  src:url("../fonts/icomoon.eot?#iefix-a2fzex") format("embedded-opentype"),
-    url("../fonts/icomoon.woff?-a2fzex") format("woff"),
-    url("../fonts/icomoon.ttf?-a2fzex") format("truetype"),
-    url("../fonts/icomoon.svg?-a2fzex#icomoon") format("svg");
+  src:url("../fonts/icomoon.eot?pt9qwm");
+  src:url("../fonts/icomoon.eot?#iefixpt9qwm") format("embedded-opentype"),
+    url("../fonts/icomoon.woff?pt9qwm") format("woff"),
+    url("../fonts/icomoon.ttf?pt9qwm") format("truetype"),
+    url("../fonts/icomoon.svg?pt9qwm#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -21,12 +21,30 @@
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  // This is a strangely contrived font size for icons inside <h3> tags
+  // I should test this in many browsers
+  h3 & {
+    font-size: 82%;
+  }
 }
 
 .icon.calendar:before {
   content: "\e600";
 }
 
-.icon.github:before {
+.icon.screen:before {
+  content: "\e601";
+}
+
+.icon.mug:before {
   content: "\e602";
+}
+
+.icon.code:before {
+  content: "\e604";
+}
+
+.icon.github:before {
+  content: "\e605";
 }

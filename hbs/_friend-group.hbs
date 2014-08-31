@@ -1,0 +1,21 @@
+<h3>
+  {{name}}
+  &nbsp;
+  <span class="icon {{unbound icon}}"></span> 
+</h3>
+
+<p>
+  {{description}}
+</p>
+
+<ul class="large-block-grid-2 small-block-grid-1">
+  {{#each friends}}
+    <li>
+      <strong>{{name}}</strong>
+      <br>
+      <a {{bind-attr href=url}}>
+        <em>{{url}}</em>
+      </a>
+    </li>
+  {{/each}}
+</ul>
