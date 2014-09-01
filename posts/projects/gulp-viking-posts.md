@@ -2,6 +2,7 @@
 id: gulp-viking-posts
 title: Viking Posts
 category: projects
+tags: viking base, node.js, gulp
 excerpt: Viking Posts is a gulp plugin meant to work with Viking Base to create lightweight JSON blog posts from Markdown files. The plugin can be used without Viking Base, too.
 created: 6/25/2014
 ---

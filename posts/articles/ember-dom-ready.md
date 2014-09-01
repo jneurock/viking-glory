@@ -2,6 +2,7 @@
 id: ember-dom-ready
 title: Ember DOM Ready
 category: articles
+tags: ember
 excerpt: Ember is awesome, in my biased opinion, but it presents interesting new challenges for developers. One of the most common patterns used in web development is to handle a DOM ready event but relying on that in a one-page application isn't possible.
 created: 02/19/2014
 updated: 02/21/2014

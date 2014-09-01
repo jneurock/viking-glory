@@ -43,7 +43,7 @@
       </section>
 
       <footer class="row">
-        <div class="columns">
+        <div class="large-3 small-5 columns">
           {{#unless url}}
             {{#link-to this.path this.id}}
               Read more...
@@ -51,6 +51,15 @@
           {{else}}
             <a {{bind-attr href=url}}>Read more...</a>
           {{/unless}}
+        </div>
+
+        <div class="large-9 small-7 columns text-right">
+          <span class="tag">{{category}}</span>
+
+          {{#each tags}}
+            <span class="tag hide-for-small">{{this}}</span>
+          {{/each}}
+          </ul>
         </div>
       </footer>
     {{/if}}

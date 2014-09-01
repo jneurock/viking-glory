@@ -9,6 +9,8 @@ App.Posts = Ember.Object.extend();
 
 App.Posts.reopenClass({
   /**
+   * Find all posts and optionally filter by category
+   * 
    * @memberof App.Posts
    * @instance
    * @param {string} [category] A category to filter by
@@ -17,25 +19,35 @@ App.Posts.reopenClass({
    */
   findAll: function(category, page) {
 
-    return $.ajax('posts/posts.json').then(
+    var options = {
+          context: this
+        };
+
+    return $.ajax('posts/posts.json', options).then(
       // Success
       function(response) {
 
         var endPostIndex = 0,
             i = 0,
+            len = response.length,
+            post = null,
             posts = [],
             postsPerPage = App.get('postsPerPage') || 5,
             startPostIndex = 0;
 
-        for (i = 0; i < response.length; i++) {
+        for (i = 0; i < len; i++) {
+
+          post = response[i];
 
           // Add "path" property to post
-          response[i].path = response[i].category + '.' + response[i].category.slice(0, -1);
+          post.path = post.category + '.' + post.category.slice(0, -1);
 
           // Filter out any unwanted posts
-          if (!category || response[i].category === category) {
+          if (!category || post.category === category) {
 
-            posts.push(response[i]);
+            App.Post.adaptTags(post);
+
+            posts.push(post);
           }
         }
 
@@ -77,6 +89,37 @@ App.Post = Ember.Object.extend();
 
 App.Post.reopenClass({
   /**
+   * Transform comma separated tags into an array
+   *
+   * @memberof App.Post
+   * @instance
+   * @param {Object} post The post object
+   */
+  adaptTags: function(post) {
+
+    try {
+
+      var i = 0,
+          tags = post.tags ? post.tags.split(',') : [],
+          len = tags.length;
+
+      for (i = 0; i < len; i++) {
+
+        tags[i] = tags[i].trim();
+      }
+
+      post.tags = tags;
+
+    } catch(e) {
+
+      if (DEBUG) {
+
+        console.error('App.Post.adaptTags:');
+        console.error(e);
+      }
+    }
+  },
+  /**
    * @memberof App.Post
    * @instance
    * @param {string} id The model's ID
@@ -93,14 +136,16 @@ App.Post.reopenClass({
 
         return $.ajax('posts/' + category + id + '.json').then(
           // Success
-          function(response) {
+          function(post) {
 
-            App.setPageTitle(response.title);
+            App.setPageTitle(post.title);
+
+            App.Post.adaptTags(post);
 
             // Indicate this is the last post so no border is added
-            response.last = true;
+            post.last = true;
 
-            return response;
+            return post;
           },
 
           // Fail

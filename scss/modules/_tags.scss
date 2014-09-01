@@ -1,0 +1,12 @@
+.tag {
+  background-color: $white-smoke;
+  border: 1px solid $box-shadow-color;
+  border-radius: $global-radius;
+  color: $gray;
+  display: inline-block !important;
+  font-size: 80%;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: rem-calc(5px);
+  padding: rem-calc(4px 6px 5px);
+}
