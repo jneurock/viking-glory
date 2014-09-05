@@ -196,6 +196,48 @@ App = Ember.Application.create({
 });
 
 /**
+ * An Ember route for the entire application
+ *
+ * @memberof App
+ * @constructor
+ * @extends external:Ember.Route
+ */
+App.ApplicationRoute = Ember.Route.extend({
+  actions: {
+    /**
+     * Handles all model loading events
+     *
+     * @memberof App.ApplicationRoute
+     * @instance
+     * @param {Object} transition The transition object
+     */
+    loading: function(transition) {
+
+      // Begin timeout
+      App.set('timeout', setTimeout(function() {
+
+        App.set('isLoading', true);
+
+      }, 300));
+
+      transition.finally(function() {
+
+        var timeout = App.get('timeout');
+
+        if (timeout) {
+
+          clearTimeout(timeout);
+
+          App.set('timeout', null);
+        }
+
+        App.set('isLoading', false);
+      });
+    }
+  }
+});
+
+/**
  * An Ember controller for the application itself
  *
  * @memberof App
