@@ -29,6 +29,7 @@ module.exports = function( gulp, plugins, vb, cb ) {
           block.end( vb.output.css + vb.output.cssHash );
 
         }.bind( vb ) ),
+
         // Process JavaScript
         js: plugins.htmlbuild.preprocess.js(function( block ) {
 
@@ -40,7 +41,7 @@ module.exports = function( gulp, plugins, vb, cb ) {
                 block.end( vb.replaceJsSources( sources ) );
 
               }.bind( vb ) ) )
-              .pipe( vb.gulp.dest( vb.output.publish + vb.output.js ) );
+              .pipe( gulp.dest( vb.output.publish + vb.output.js ) );
 
           } else {
 
@@ -52,20 +53,21 @@ module.exports = function( gulp, plugins, vb, cb ) {
 
             block.end( vb.output.js + vb.output.jsHash );
           }
-        
+
         }.bind( vb ) ),
+
+        // Process jQuery 1x
+        jqueryonex: plugins.htmlbuild.preprocess.js( function( block ) {
+
+          vb.preprocessJsVendorCb.call( vb, block, vb.output.jquery1x );
+
+        }.bind( vb ) ),
+
         // Process vendor scripts. Set output paths.
-        jsvendor: plugins.htmlbuild.preprocess.js(function( block ) {
+        jsvendor: plugins.htmlbuild.preprocess.js( function( block ) {
 
-          block
-            .pipe( vb.gulpSrc( null, function( sources ) {
+          vb.preprocessJsVendorCb.call( vb, block );
 
-              block.end( vb.replaceJsSources( sources, true ) );
-
-            }.bind( vb )))
-            .pipe( plugins.if( vb.prod, plugins.uglify() ) )
-            .pipe( gulp.dest( vb.output.publish + vb.output.jsVendor ) );
-        
         }.bind( vb ) )
       }))
       .pipe( gulp.dest( vb.output.publish ) );
