@@ -11,6 +11,66 @@ module.exports = function( gulp, plugins, vb, cb ) {
   vb.sources.img = 'img/**/*';
   vb.sources.posts = 'posts/**/*.md';
 
+  vb.tasks.build.cb = function() {
+
+    return gulp.src( vb.sources.html )
+      .pipe( plugins.if( vb.prod, plugins.replace( /DEBUG\s=\strue/g, 'DEBUG = false' ) ) )
+      .pipe( plugins.htmlbuild({
+        // Process CSS
+        css: plugins.htmlbuild.preprocess.css(function( block ) {
+
+          block
+            .pipe( vb.gulpSrc() )
+            .pipe( plugins.sass() )
+            .pipe( plugins.concat( vb.output.cssHash ) )
+            .pipe( plugins.if( vb.prod, plugins.minifyCss() ) )
+            .pipe( gulp.dest( vb.output.publish + vb.output.css ) );
+
+          block.end( vb.output.css + vb.output.cssHash );
+
+        }.bind( vb ) ),
+        // Process JavaScript
+        js: plugins.htmlbuild.preprocess.js(function( block ) {
+
+          if ( !vb.prod ) {
+
+            block
+              .pipe( vb.gulpSrc( null, function( sources ) {
+
+                block.end( vb.replaceJsSources( sources ) );
+
+              }.bind( vb ) ) )
+              .pipe( vb.gulp.dest( vb.output.publish + vb.output.js ) );
+
+          } else {
+
+            block
+              .pipe( vb.gulpSrc() )
+              .pipe( plugins.uglify() )
+              .pipe( plugins.concat( vb.output.jsHash ) )
+              .pipe( gulp.dest( vb.output.publish + vb.output.js ) );
+
+            block.end( vb.output.js + vb.output.jsHash );
+          }
+        
+        }.bind( vb ) ),
+        // Process vendor scripts. Set output paths.
+        jsvendor: plugins.htmlbuild.preprocess.js(function( block ) {
+
+          block
+            .pipe( vb.gulpSrc( null, function( sources ) {
+
+              block.end( vb.replaceJsSources( sources, true ) );
+
+            }.bind( vb )))
+            .pipe( plugins.if( vb.prod, plugins.uglify() ) )
+            .pipe( gulp.dest( vb.output.publish + vb.output.jsVendor ) );
+        
+        }.bind( vb ) )
+      }))
+      .pipe( gulp.dest( vb.output.publish ) );
+  };
+
   // Task updates
   vb.tasks.build.depends = [
     'css',
@@ -25,8 +85,8 @@ module.exports = function( gulp, plugins, vb, cb ) {
   vb.tasks.fonts = {
     cb: function() {
 
-      return gulp.src( this.sources.fonts )
-        .pipe( gulp.dest( this.output.publish + this.output.fonts ) );
+      return gulp.src( vb.sources.fonts )
+        .pipe( gulp.dest( vb.output.publish + vb.output.fonts ) );
     }
   };
 
@@ -35,8 +95,8 @@ module.exports = function( gulp, plugins, vb, cb ) {
   vb.tasks.img = {
     cb: function() {
 
-      return gulp.src( this.sources.img )
-        .pipe( gulp.dest( this.output.publish + this.output.img ) );
+      return gulp.src( vb.sources.img )
+        .pipe( gulp.dest( vb.output.publish + vb.output.img ) );
     }
   };
 
@@ -53,12 +113,12 @@ module.exports = function( gulp, plugins, vb, cb ) {
             concat: true
           };
 
-      return gulp.src( this.sources.posts )
+      return gulp.src( vb.sources.posts )
         .pipe( plugins.vikingPosts( vbOpts ) )
-        .pipe( gulp.dest( this.output.publish + this.output.post ) )
-        .pipe( plugins.concat( this.output.posts, concatOpts ) )
+        .pipe( gulp.dest( vb.output.publish + vb.output.post ) )
+        .pipe( plugins.concat( vb.output.posts, concatOpts ) )
         .pipe( plugins.vikingPosts( vbConcatOpts ) )
-        .pipe( gulp.dest( this.output.publish + this.output.post ) );
+        .pipe( gulp.dest( vb.output.publish + vb.output.post ) );
     }
   };
 

@@ -53,6 +53,16 @@
  * @see {@link http://emberjs.com/api/classes/Ember.Component.html}
  */
 
+// Tell Ember not to log its version
+if (window.Ember) {
+
+  Ember.LOG_VERSION = false;
+
+} else if (DEBUG) {
+
+  console.error('Ember was not found');
+}
+
 /*
  * Extend Ember's Route class. Add some default functionality to
  * the "beforeModel" hook.
