@@ -202,26 +202,6 @@ App = Ember.Application.create({
     }
 
     this.set('timeOfDay', timeOfDay);
-  },
-  /**
-   * Call this method when a transition passed to loading action handlers completes.
-   * Stops the loading timeout and set the loading status of the app to false.
-   *
-   * @memberof App
-   * @instance
-   */
-  transitionComplete: function() {
-
-    var timeout = App.get('timeout');
-
-    if (timeout) {
-
-      clearTimeout(timeout);
-
-      App.set('timeout', null);
-    }
-
-    App.set('isLoading', false);
   }
 });
 
@@ -251,7 +231,19 @@ App.ApplicationRoute = Ember.Route.extend({
       }, 300));
 
       // Pass transition complete method as success and fail callbacks
-      transition.then(App.transitionComplete, App.transitionComplete);
+      transition['finally'](function() {
+
+        var timeout = App.get('timeout');
+
+        if (timeout) {
+
+          clearTimeout(timeout);
+
+          App.set('timeout', null);
+        }
+
+        App.set('isLoading', false);
+      });
     }
   }
 });
