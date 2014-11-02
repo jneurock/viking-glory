@@ -39,7 +39,7 @@ App.Router.map(function() {
  * @instance
  * @type {Array.<Object>}
  */
-App.NavItems = [
+App.set('navItems', [
   {
     path: 'index',
     title: 'Home',
@@ -60,4 +60,4 @@ App.NavItems = [
     title: 'Friends',
     url: '#/friends'
   }
-];
+]);

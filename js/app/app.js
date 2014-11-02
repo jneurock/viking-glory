@@ -99,6 +99,27 @@ Ember.Route = Ember.Route.extend({
   }
 })
 
+// Extend Ember's controller mixin to expose some global properties to each controller
+Ember.ControllerMixin.reopen({
+  appIsLoading: function() {
+
+    return App.get('isLoading');
+
+  }.property('App.isLoading'),
+
+  navItems: function() {
+
+    return App.get('navItems');
+
+  }.property('App.navItems'),
+
+  timeOfDay: function() {
+
+    return App.get('timeOfDay');
+
+  }.property('App.timeOfDay')
+});
+
 /**
  * The instance of Ember.Application used throughout the app
  *
