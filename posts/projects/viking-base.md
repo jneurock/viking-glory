@@ -12,7 +12,6 @@ Viking Base is an opinionated package intended to provide a solid starting point
 
 Currently, the package consists of:
 
-
 * Ember.js 1.10.0
 * Foundation 5.4.2
 * jQuery 1.11.2 (for optional IE 8 support)
