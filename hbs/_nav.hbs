@@ -1,8 +1,8 @@
 <nav class="row">
   <div class="columns">
     <dl class="sub-nav">
-      {{#each navItems}}
-        {{nav-item path=path title=title url=url}}
+      {{#each item in navItems}}
+        {{nav-item path=item.path title=item.title url=item.url}}
       {{/each}}
     </dl>
   </div>

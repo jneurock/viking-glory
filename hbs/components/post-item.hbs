@@ -1,63 +1,63 @@
-<article {{bind-attr class=":row last"}}>
+<article {{bind-attr class=":row post.last"}}>
   <div class="columns">
     <header>
       <h3>
-        {{#unless body}}
-          {{#unless url}}
-            {{#link-to this.path this.id}}
-              {{title}}
+        {{#unless post.body}}
+          {{#unless post.url}}
+            {{#link-to post.path post.id}}
+              {{post.title}}
             {{/link-to}}
           {{else}}
-            <a bind-attr href=url>
-              {{title}}
+            <a bind-attr href=post.url>
+              {{post.title}}
             </a>
           {{/unless}}
         {{else}}
-          {{title}}
+          {{post.title}}
         {{/unless}}
       </h3>
 
       <h4 class="subheader">
         <small>
-          Posted {{created}}
+          Posted {{post.created}}
 
-          {{#if updated}}
+          {{#if post.updated}}
             &nbsp;//&nbsp;
-            Updated {{updated}}
+            Updated {{post.updated}}
           {{/if}}
         </small>
       </h4>
     </header>
 
-    {{#if model.content}}
+    {{#if post.content}}
       <section class="row">
         <div class="columns">
-          {{{model.content}}}
+          {{{post.content}}}
         </div>
       </section>
     {{else}}
       <section class="row">
         <div class="columns">
-          {{{excerpt}}}
+          {{{post.excerpt}}}
         </div>
       </section>
 
       <footer class="row">
         <div class="large-3 small-5 columns">
-          {{#unless url}}
-            {{#link-to this.path this.id}}
+          {{#unless post.url}}
+            {{#link-to post.path post.id}}
               Read more...
             {{/link-to}}
           {{else}}
-            <a {{bind-attr href=url}}>Read more...</a>
+            <a {{bind-attr href=post.url}}>Read more...</a>
           {{/unless}}
         </div>
 
         <div class="large-9 small-7 columns text-right">
-          <span class="tag">{{category}}</span>
+          <span class="tag">{{post.category}}</span>
 
-          {{#each tags}}
-            <span class="tag hide-small">{{this}}</span>
+          {{#each tag in post.tags}}
+            <span class="tag hide-small">{{tag}}</span>
           {{/each}}
         </div>
       </footer>

@@ -1,20 +1,20 @@
 <h3>
-  {{name}}
+  {{friendGroup.name}}
   &nbsp;
-  <span class="icon {{unbound icon}}"></span> 
+  <span {{bind-attr class="friendGroup.icon :icon"}}></span> 
 </h3>
 
 <p>
-  {{description}}
+  {{friendGroup.description}}
 </p>
 
 <ul class="large-block-grid-2 small-block-grid-1">
-  {{#each friends}}
+  {{#each friend in friendGroup.friends}}
     <li>
-      <strong>{{name}}</strong>
+      <strong>{{friend.name}}</strong>
       <br>
-      <a {{bind-attr href=url}}>
-        <em>{{url}}</em>
+      <a {{bind-attr href=friend.url}}>
+        <em>{{friend.url}}</em>
       </a>
     </li>
   {{/each}}

@@ -3,7 +3,7 @@
     <h3 class="subheader text-center">What I've Been Into Lately</h3>
 
     <ul class="large-block-grid-8 small-block-grid-4">
-      {{#each App.intoLatelyItems}}
+      {{#each item in app.intoLatelyItems}}
         {{partial "into-lately-item"}}
       {{/each}}
     </ul>

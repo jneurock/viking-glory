@@ -63,11 +63,27 @@ if (window.Ember) {
   console.error('Ember was not found');
 }
 
+// Reopen Ember's Object class. Add reference to global "App" instance.
+Ember.Object.reopen({
+  /**
+   * Reference to the application-wide instance of Ember.Application
+   *
+   * @memberof external:Ember.Object
+   * @instance
+   * @type {Object}
+   */
+  app: function() {
+
+    return App;
+
+  }.property('App')
+});
+
 /*
  * Extend Ember's Route class. Add some default functionality to
  * the "beforeModel" hook.
  */
-Ember.Route = Ember.Route.extend({
+Ember.Route.reopen({
   /**
    * The route's "beforeModel" hook. Runs before the model is filled.
    * This hook still runs even if there is no model. The functionality

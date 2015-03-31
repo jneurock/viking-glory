@@ -1,11 +1,11 @@
-{{#with meta}}
-  <h2>{{title}}</h2>
+{{#with controller.meta as meta}}
+  <h2>{{meta.title}}</h2>
 
-  <p>{{description}}</p>
+  <p>{{meta.description}}</p>
 {{/with}}
 
-{{#each}}
-  {{partial "post-item"}}
+{{#each post in model}}
+  {{post-item post=post}}
 {{else}}
   <article class="row">
     <div class="columns">
