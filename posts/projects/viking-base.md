@@ -5,15 +5,15 @@ category: projects
 tags: node.js, gulp, bower, ember, foundation
 excerpt: Viking Base is an opinionated package intended to provide a solid starting point for building web applications. The package consists of several key components including Ember.js, Handlebars.js, Foundation and gulp. Viking Base leans on Bower to manage dependencies and gulp to build while providing a simple scaffolding script.
 created: 01/16/2014
-updated: 03/31/2015
+updated: 05/03/2015
 ---
 
 Viking Base is an opinionated package intended to provide a solid starting point for building web applications. The package consists of several key components including Ember.js, Handlebars.js, Foundation and gulp. Viking Base leans on Bower to manage dependencies and gulp to build while providing a simple scaffolding script.
 
 Currently, the package consists of:
 
-* Ember.js 1.11.1
-* Foundation 5.4.2
+* Ember.js 1.11.3
+* Foundation 5.5.2
 * jQuery 1.11.2 (for optional IE 8 support)
 * Respond 1.4.2 (for optional IE 8 support)
 * REM Unit Polyfill 1.3.2 (for optional IE 8 support)
